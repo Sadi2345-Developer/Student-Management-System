@@ -134,7 +134,7 @@ This project uses **MongoDB Atlas** for database hosting and cloud connectivity.
 Example Environment Variable:
 
 ```env
-MONGO_URI=your_mongodb_connection_string
+MONGO_URI=mongodb+srv://sadiatanveer2233_db_user:<db_password>@cluster0.gbn1u3m.mongodb.net/?appName=Cluster0
 ```
 
 ---
