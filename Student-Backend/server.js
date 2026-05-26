@@ -1,5 +1,5 @@
 // iska purpose y ha kay ya poray project ki base file ha ismy hm sb kuch main cheezain define kraingay
-
+// this is the server file of my backend
 // import the packages that  we need to use in our server
 const express = require("express");
 const mongoose = require("mongoose");
