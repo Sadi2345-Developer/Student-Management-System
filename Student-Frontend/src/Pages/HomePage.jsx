@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { deleteStudent, getAllStudents } from "../Api/studentapi";
 import StudentCard from "../Components/StudentCards";
-import { Row, Col, Container, Alert } from "react-bootstrap";
+import { Container, Alert } from "react-bootstrap";
 
 const HomePage = () => {
-  // UseState hook is used for initialization and updation
-  // defining the hooks
   // useState for getting all the students data
   const [students, setStudents] = useState([]);
   // state for handling the loading
@@ -44,41 +42,42 @@ const HomePage = () => {
       // after deleting the data , now we need to filter the data
       setStudents(prev => prev.filter(s => s._id !== id))
       // showing the success message the student is deleted
-      // controller.js ki file m jo message ka variable likha tha vo use hoa idr
-      setMessage({ text: data.message })
+      setMessage({ text: data.message, variant: 'success' })
     } catch (err) {
-      setMessage({ text: 'COuld not delete the student' })
+      setMessage({ text: 'Could not delete the student', variant: 'danger' })
     }
     // hiding a message after 4 seconds
-    setTimeout( () => setMessage(null, 4000))
+    setTimeout(() => setMessage(null), 4000)
   };
 
   return (
-<div>
-  <h1>All Students Data</h1>
-  {
-    message && (
-      <Alert variant={message.success}>{message.text}</Alert>
-    )
-  }
+    <div>
+      {/* Page Title - shown only once */}
+      <div className="page-title-section">
+        <h1>All Students</h1>
+        <p className="subtitle">Manage and view all student records</p>
+      </div>
 
-
-    <Container className="mt-4">
-      <h1>All Students Data</h1>
-
-      {/* condition if there is no student data */}
-      {students && students.length === 0 ? (
-        <p>No students data found</p>
-      ) : (
-        <Row xs={1} md={2} lg={3} className="g-4">
-          {students && students.map(s => (
-            <Col key={s._id}>
-              <StudentCard student={s} onDelete={handledelete} />
-            </Col>
-          ))}
-        </Row>
+      {message && (
+        <Container>
+          <Alert variant={message.variant}>{message.text}</Alert>
+        </Container>
       )}
-    </Container>
+
+      <Container className="mt-2 mb-5">
+        {/* condition if there is no student data */}
+        {students && students.length === 0 ? (
+          <div className="empty-state">
+            <p>No students data found</p>
+          </div>
+        ) : (
+          <div className="student-cards-grid">
+            {students && students.map(s => (
+              <StudentCard key={s._id} student={s} onDelete={handledelete} />
+            ))}
+          </div>
+        )}
+      </Container>
     </div>
   )
 };
