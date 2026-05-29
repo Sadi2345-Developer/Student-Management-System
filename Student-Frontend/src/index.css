@@ -58,6 +58,16 @@
   #social .button-icon {
     filter: invert(1) brightness(2);
   }
+
+  .student-card .card-title {
+    color: #f0eef8 !important;
+  }
+  .student-card .card-text {
+    color: #c4c0d4 !important;
+  }
+  .student-card .card-text strong {
+    color: #f0eef8 !important;
+  }
 }
 
 /* ===== Reset & Base ===== */
@@ -222,7 +232,7 @@ code {
   font-family: var(--heading) !important;
   font-weight: 700 !important;
   font-size: 1.35rem !important;
-  color: var(--text-h) !important;
+  color: #1a1a2e !important;
   letter-spacing: -0.02em;
   margin-bottom: 4px !important;
 }
@@ -236,13 +246,13 @@ code {
 
 .student-card .card-text {
   font-size: 0.9rem;
-  color: var(--text);
+  color: #333344 !important;
   margin-top: 12px;
 }
 
 .student-card .card-text strong {
-  color: var(--text-h);
-  font-weight: 600;
+  color: #1a1a2e !important;
+  font-weight: 700;
   margin-right: 6px;
 }
 
